@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Текстовый дождь из тучки</title>
+
+    <style type="text/css">
+
+    </style>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css">
+</head>
+
+<body id="wrapper">
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/p5.min.js'></script>
+
+    <script type="text/javascript">
+        var height = 420,
+            width = 250;
+        var symbols = [];
+        var symbolSize = 20;
+        var timer = 0;
+        var streams = [];
+
+        class Symbol {
+            constructor(x, y, speed) {
+                this.x = x;
+                this.y = y;
+                this.speed = speed;
+                this.switchInterval = round(random(5, 20));
+                this.value;
+                this.setRandomSymbol = function() {
+                    if (timer % this.switchInterval == 0) {
+                        this.value = String.fromCharCode(
+                            0x10A0 + round(random(0, 96))
+                        );
+                    }
+                }
+            }
+            rain() {
+                this.y = (this.y >= height) ? 0 : this.y += this.speed;
+            }
+        }
+
+        class Stream {
+            constructor() {
+                this.stream = [];
+                this.streamLength = round(50);
+                this.speed = random(20);
+            }
+            generateSymbols(x, y) {
+                for (let i = 0; i <= this.streamLength; i++) {
+                    var symbol = new Symbol(x, y, this.speed);
+                    symbol.setRandomSymbol();
+                    this.stream.push(symbol);
+                    y -= symbolSize;
+                }
+            }
+            render() {
+                this.stream.forEach(symbol => {
+                    fill('#00a550');
+                    text(symbol.value, symbol.x, symbol.y)
+                    symbol.setRandomSymbol();
+                    symbol.rain();
+                });
+            }
+        }
+
+        function setup() {
+            var height = 1420,
+                width = 1220;
+            var c = createCanvas(width, height);
+            c.parent('wrapper')
+            var x = 0;
+            for (let i = 0; i <= width / symbolSize; i++) {
+                var y = random(-300, 0);
+                var stream = new Stream();
+                stream.generateSymbols(x, y);
+                streams.push(stream);
+                x += symbolSize;
+            }
+            textSize(symbolSize)
+        }
+
+        function draw() {
+            background('#000');
+            streams.forEach(stream => {
+                stream.render();
+            })
+            timer++;
+        }
+    </script>
+
+</body>
+
+</html>
