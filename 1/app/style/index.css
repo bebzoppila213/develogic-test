@@ -1,0 +1,111 @@
+@import url("./fonts/font.css");
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+.signature {
+    margin: 5% auto 0px;
+    max-width: 700px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.signature__title {
+    font-size: 20px;
+    font-family: "Azoft-Sans";
+    font-weight: bold;
+    font-size: 25px;
+    margin-bottom: 15px;
+}
+
+.signature__btn {
+    padding: 10px 20px;
+    background-color: #4f76d5;
+    font-size: 15px;
+    color: #fff;
+    border: 0px;
+    font-family: "Azoft-Sans";
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+
+.signature-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+}
+
+.signature-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    background-color: #f0f4fd;
+    padding: 15px 30px;
+    border-radius: 10px;
+}
+
+.signature-item__img-inner {
+    padding: 10px;
+    border: 2px solid #dfe6fb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    background-color: #fff;
+}
+
+.signature-item__img-item {
+    width: 40px;
+    height: 40px;
+}
+
+.signature-item__text {
+    font-family: "Geometria";
+    font-weight: 500;
+}
+
+.signature-reward {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    margin-top: 10px;
+    width: 100%;
+    border: 2px solid #eff3fd;
+    padding: 10px 0px;
+}
+
+.signature-reward__link {
+    font-size: 16px;
+    color: #5983ed;
+}
+
+@keyframes rotating {
+    from {
+        -ms-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    to {
+        -ms-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+.rotating {
+    animation: rotating 2s linear infinite;
+}

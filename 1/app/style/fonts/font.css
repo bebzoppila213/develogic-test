@@ -1,0 +1,14 @@
+@font-face {
+    font-family: 'Geometria';
+    src: url('./geometria/Geometria-Regular.eot');
+    src: local('Geometria Regular'), local('./geometria/Geometria-Regular'), url('./geometria/Geometria-Regular.eot?#iefix') format('embedded-opentype'), url('./geometria/Geometria-Regular.woff2') format('woff2'), url('./geometria/Geometria-Regular.woff') format('woff'), url('./geometria/Geometria-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Azoft-Sans';
+    src: url('./azoft/azoft-sans-bold.ttf');
+    font-weight: bold;
+    font-style: normal;
+}
