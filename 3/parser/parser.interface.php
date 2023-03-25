@@ -1,7 +1,9 @@
 <?php 
 
 interface IParser{
-    public function parseFile(string $filePAth);
+    public function __construct(string $filePath);
+
+    public function parseFile();
 }
 
 ?>

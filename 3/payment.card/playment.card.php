@@ -1,17 +1,34 @@
-<?php 
+<?php
 
-    class PlaymentCard extends Fields implements IPlaymentCard{
+class PlaymentCard implements IPlaymentCard
+{
+    private Counterparty $payer;
+    private Counterparty $recipient;
+    private string $date;
+    private int $sum;
+    private string $purposePayment;
 
-        public function constructor(){
-            $this->initFields();
-        }
-
-        public function getInfo()
-        {
-            return $this->fields;
-        }
-
-        protected function getFields(){
-            return ['Дата' => '', 'Сумма' => '', 'НазначениеПлатежа' => ''];
-        }
+    public function getInfo()
+    {
     }
+
+    public function setField(string $field, string $value)
+    {
+        if (in_array($field, ['date', 'sum', 'purposePayment'])) {
+            $this->$field = $value;
+        }
+        return $this;
+    }
+
+    public function addPayer(ICounterparty $payer)
+    {
+        $this->payer = $payer;
+        return $this;
+    }
+
+    public function addRecipient(ICounterparty $recipient)
+    {
+        $this->recipient = $recipient;
+        return $this;
+    }
+}
